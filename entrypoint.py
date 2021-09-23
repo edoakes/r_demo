@@ -55,7 +55,7 @@ if __name__ == "__main__":
         "--total-steps",
         required=False,
         type=int,
-        default=3,
+        default=100,
         help="total number of steps taken")
     parser.add_argument(
         "--fail-at-step",
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         help="throw exception at given step, if given")
     args, _ = parser.parse_known_args()
 
-    ray.init()
+    ray.init("auto")
     step_actor = StepActor.remote(
         interval_s=args.interval_s,
         total_steps=args.total_steps, fail_at_step=args.fail_at_step)
