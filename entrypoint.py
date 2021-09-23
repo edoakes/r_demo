@@ -67,7 +67,9 @@ if __name__ == "__main__":
         help="throw exception at given step, if given")
     args, _ = parser.parse_known_args()
 
-    ray.init("auto")
+    job_config = ray.job_config.JobConfig()
+    job_config.set_metadata("creator_id", "usr_QiSM2sZG7uK8UaA8EuFpLker")
+    ray.init(address="auto", job_config=job_config)
     step_actor = StepActor.remote(
         interval_s=args.interval_s,
         total_steps=args.total_steps, fail_at_step=args.fail_at_step)
