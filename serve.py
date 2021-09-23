@@ -13,8 +13,8 @@ app = FastAPI()
 @serve.ingress(app)
 class MyApp:
     @app.get("/")
-    def say_hello(self, name: str):
-        return f"Hello {name}!"
+    def say_hello(self):
+        return "Hello from Ray Serve!"
 
 if __name__ == "__main__":
     connect_to_ray()
