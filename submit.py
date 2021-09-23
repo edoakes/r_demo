@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+from pprint import pprint
 from typing import Optional
 
 import requests
@@ -14,7 +17,8 @@ COOKIES = {
 
 @app.command()
 def submit(package: str, entrypoint: str, name: Optional[str] = "test_job"):
-    requests.post(URL, cookies=COOKIES, json={
+    print(f"Submitting job package='{package}' :: entrypoint='{entrypoint}'")
+    r = requests.post(URL, cookies=COOKIES, json={
       "name": name,
       "entrypoint": entrypoint,
       "runtime_env": {
@@ -25,6 +29,11 @@ def submit(package: str, entrypoint: str, name: Optional[str] = "test_job"):
       "compute_template_id": "cpt_T3EbHvqFUgdcH2xUA5NQAfay",
       "max_retries": 5
     })
+    print("\nSubmitted job successfully, response:")
+    response = r.json()
+    del response["result"]["job_id"]
+    del response["result"]["state"]
+    pprint(response)
 
 @app.command()
 def status():

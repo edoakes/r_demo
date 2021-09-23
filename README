@@ -1,0 +1,6 @@
+# Install CLI:
+chmod +x submit.py
+cp submit.py /usr/local/bin/anyscale-job
+
+# Submit:
+anyscale-job submit https://github.com/edoakes/r_demo "python serve.py"
