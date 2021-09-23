@@ -4,3 +4,9 @@ cp submit.py /usr/local/bin/anyscale-job
 
 # Submit:
 anyscale-job submit https://github.com/edoakes/r_demo "python serve.py"
+
+# Get status:
+anyscale-job status <job_id_from_response>
+
+# Stop:
+anyscale-job stop <job_id_from_response>
