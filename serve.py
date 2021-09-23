@@ -14,7 +14,7 @@ app = FastAPI()
 class MyApp:
     @app.get("/")
     def say_hello(self):
-        return "Hello from Ray Serve!"
+        return "NEW NEW NEW"
 
 if __name__ == "__main__":
     connect_to_ray()
