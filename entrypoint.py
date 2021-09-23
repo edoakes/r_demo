@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Regular ray application that user wrote and runs on local cluster.
 # intermediate status are dumped to GCS
 import argparse
